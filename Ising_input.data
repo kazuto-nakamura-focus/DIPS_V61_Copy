@@ -1,0 +1,54 @@
+#
+# --- input data for Small World Ising Calculation Program ---
+#
+#
+#
+
+# Internal Condition:
+    #
+    # number of Site
+    #
+    nsite = 6
+
+    #
+    # magnetic morment for each spin
+    #
+    ispin[up]   =  1
+    ispin[down] = -1
+
+    #
+    # single particle energy for each spin
+    #    use ratio of research and development(R&D) spending 
+    #
+    energy[up]   =  -4.83
+    energy[down] =   4.83
+
+# for JMatrix Infomation
+    #
+    # percentage
+    #
+    country = japan
+    #year = 1988
+    year = 2013
+    OperatingMargin = 8.87
+    ROE = 6.96
+    ROIC = 5.42
+    
+
+
+#External Condition:
+    #
+    # default ... no
+    #   H: input handly or 'random'
+    #
+
+    #volatility = 10.458
+    volatility = 25.063
+    #
+    # external magnetic field
+    #
+    external = yes
+    #
+    # market, technology, cost,  HumanResource, MentalModel, Design
+    #
+    mu = 2.0

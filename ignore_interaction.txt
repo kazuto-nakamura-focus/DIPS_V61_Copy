@@ -1,0 +1,14 @@
+#
+# ignore interaction config sheet
+#
+# Factor
+#
+#     1: Market       : MKT
+#     2: Technology   : Tech
+#     3: Cost         : Cost
+#     4: HumanResource: HR
+#     5: MentalModel  : MM
+#     6: Design       : DSG
+#
+
+# HR <=> DSG

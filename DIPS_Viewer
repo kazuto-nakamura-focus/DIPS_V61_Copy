@@ -1,0 +1,323 @@
+#!/usr/bin/env python3
+#
+# Easy DIPS Simulation Tool 
+#  written by Hiroki Funashima in KINDAI University Technical College 2022
+#
+#  Copyright 2022-2023, Hiroki Funashima, All Rights reserved.
+#
+#
+import sys
+import os
+import openpyxl
+import re
+from PyQt5 import QtWidgets, QtGui
+import subprocess
+from PyModule.ExchangeGraph import ExchangeGraph
+from PyModule.ParseAnswerLog import ParseAnswerLog
+from PyModule.ParseQuestionSheets import ParseQuestionSheets
+from PyModule.Questionnaire2Matrixform import Questionnaire2Matrixform
+
+
+class QViewer(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        super(QViewer, self).__init__(parent)
+        self.title = 'Result of exchange correlation'
+        self.left = 600
+        self.top = 600
+        self.width = 400
+        self.height = 200
+        self.setGeometry(self.left, self.top, self.width, self.height)
+
+    def set_text(self, value, title):
+        self.setWindowTitle(title)
+        label = QtWidgets.QLabel()
+        label.setText(value)
+        layout = QtWidgets.QHBoxLayout()
+        layout.addWidget(label)
+        self.setLayout(layout)
+
+
+class QViewerSelector(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        super(QViewerSelector, self).__init__(parent)
+        self.sheet = ParseQuestionSheets()
+        self.title = 'Result of exchange correlation'
+        self.left = 500
+        self.top = 500
+        self.width = 400
+        self.height = 200
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left, self.top, self.width, self.height)
+        self.answerLog = ParseAnswerLog()
+        self.main()
+
+    def get_values(self):
+        keys = [str(key.currentText()) for key in self.keys]
+        return keys
+
+    def makeWindow(self):
+        self.newWindow = QViewer()
+        keys = self.get_values()
+        key1, key2 = keys
+        title = '{0}-{1}'.format(key1, key2)
+        # text = self.sheet.demo2(key1, key2)
+        data = self.sheet.demo3(key1, key2)
+        questions = data['questions']
+        indices = data['indices']
+        text = ''
+        for (question, qindex) in zip(questions, indices):
+            answer = self.answerLog.get_answer(qindex)
+            #text += '{0}({1})\n'.format(question.replace('/', '\n'), answer)
+            #text += '{0}({1})\n'.format(question.split('\\')[0], answer)
+            text += '{0}({1})\n'.format(question.split('\\')[-1], answer)
+        self.newWindow.set_text(text, title)
+        self.newWindow.show()
+
+    def main(self):
+        self.keys = [None] * 2
+        y = 50
+        for i in range(2):
+            self.keys[i] = QtWidgets.QComboBox(self)
+            self.keys[i].addItems(["MKT", "Tech", "Cost", "HR", "MM", "DSG"])
+            x = (i+1) * 80
+            self.keys[i].move(x, y)
+        button = QtWidgets.QPushButton(self)
+        button.setText('show')
+        button.move(120, y+50)
+        button.clicked.connect(self.makeWindow)
+
+
+class ResultsWindow(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        super(ResultsWindow, self).__init__(parent)
+        self.title = 'Result of exchange correlation'
+        self.left = 400
+        self.top = 400
+        self.width = 400
+        self.height = 200
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left, self.top, self.width, self.height)
+
+    def main(self):
+        self.pushButton1 = QtWidgets.QPushButton("Tetrahedron model", self)
+        self.pushButton1.clicked.connect(self.on_pushButton1_clicked)
+        self.pushButton2 = QtWidgets.QPushButton("Exchange Correlation Graph",
+                                                 self)
+        self.pushButton2.clicked.connect(self.on_pushButton2_clicked)
+        self.pushButton3 = QtWidgets.QPushButton("Question and Exchange", self)
+        self.pushButton3.clicked.connect(self.on_pushButton3_clicked)
+
+        layout = QtWidgets.QVBoxLayout()
+        layout.addWidget(self.pushButton1)
+        layout.addWidget(self.pushButton2)
+        layout.addWidget(self.pushButton3)
+        self.setLayout(layout)
+
+    def on_pushButton1_clicked(self):
+        command = 'PyModule/ColorSampleWindow.py &'
+        subprocess.call(command, shell=True)
+        command = './PlotModel.rb &'
+        subprocess.call(command, shell=True)
+
+    def parse_configure(self, configfile='J_Matrix.data'):
+        if not os.path.isfile(configfile):
+            print('file:{} is not found.'.format(configfile))
+            exit()
+        for line in open(configfile, mode='r'):
+            jmatrix_file = None
+            lmatrix_file = None
+            linebuf = line.split('#')[0].strip()
+            if linebuf == '':
+                continue
+            if re.search('^use', linebuf):
+                jmatrix_file, lmatrix_file = linebuf.replace(',', ' ').\
+                    split()[1:3]
+        return [jmatrix_file, lmatrix_file]
+
+    def on_pushButton2_clicked(self):
+        configfile = 'J_Matrix.data'
+        jmatrix_file, lmatrix_file = self.parse_configure(configfile)
+        jmatrix_file = 'lib/jmatrix/{}'.format(jmatrix_file)
+        lmatrix_file = 'lib/length_matrix/{}'.format(lmatrix_file)
+        ExchangeGraph(jmatrix_file=jmatrix_file, lmatrix_file=lmatrix_file)
+
+    def on_pushButton3_clicked(self):
+        self.newWindow3 = QViewerSelector()
+        self.newWindow3.show()
+
+
+class JMatrixLogWindow(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        super(JMatrixLogWindow, self).__init__(parent)
+        self.title = 'result of Jmatrix'
+        self.left = 400
+        self.top = 400
+        self.width = 600
+        self.height = 200
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left, self.top, self.width, self.height)
+
+    def main(self, logfile):
+        label = QtWidgets.QTextEdit()
+        if os.path.isfile(logfile):
+            for line in open(logfile, mode='r'):
+                if re.search('^Q', line):
+                    continue
+                label.append(line)
+        first_row_block = label.document().findBlockByLineNumber(0)
+        text_cursor = QtGui.QTextCursor(first_row_block)
+        label.setTextCursor(text_cursor)
+        layout = QtWidgets.QVBoxLayout()
+        pushButton = QtWidgets.QPushButton("Close this window", self)
+        pushButton.clicked.connect(self.on_pushButton_clicked)
+        layout.addWidget(label)
+        layout.addWidget(pushButton)
+        self.setLayout(layout)
+
+    def on_pushButton_clicked(self):
+        self.close()
+
+
+class Second(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        super(Second, self).__init__(parent)
+        # Setting a title, locating and sizing the window
+        self.title = 'Generate Jmatrix'
+        self.left = 200
+        self.top = 200
+        self.width = 200
+        self.height = 200
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left, self.top, self.width, self.height)
+
+    def main(self, name_list, filename):
+        self.dropdownButton = QtWidgets.QComboBox()
+        self.filename = filename
+        self.dropdownButton.addItems(name_list)
+
+        self.pushButton2 = QtWidgets.QPushButton("select this person", self)
+        self.pushButton2.clicked.connect(self.on_pushButton1_clicked)
+        self.pushButton3 = QtWidgets.QPushButton("show results", self)
+        self.pushButton3.clicked.connect(self.on_pushButton3_clicked)
+
+        layout = QtWidgets.QVBoxLayout()
+        layout.addWidget(self.dropdownButton)
+        layout.addWidget(self.pushButton2)
+        layout.addWidget(self.pushButton3)
+        self.setLayout(layout)
+
+    def on_pushButton1_clicked(self):
+        person_index = self.dropdownButton.currentIndex() + 2
+        self.exec_genJMatrix(person_index)
+
+    def on_pushButton3_clicked(self):
+        self.newWindow = ResultsWindow()
+        self.newWindow.main()
+        self.newWindow.show()
+
+    def exec_genJMatrix(self, person_index):
+        questionnaire = Questionnaire2Matrixform(self.filename)
+        tmpfile = '.answer.log'
+        answers = questionnaire.get_answers(person_index=person_index)
+        with open(tmpfile, mode='w') as fout:
+            for answer in answers:
+                fout.write('{}\n'.format(answer))
+        if not os.path.isfile(tmpfile):
+            print('failed.')
+            exit()
+        logfile = '.gen_jmatrix.log'
+        command = './tools/GenerateJMatrix.rb < {0} > {1}'.\
+                  format(tmpfile, logfile)
+        subprocess.call(command, shell=True)
+        #  if os.path.isfile(tmpfile):
+        #     os.remove(tmpfile)
+        self.newWindow = JMatrixLogWindow()
+        self.newWindow.main(logfile)
+        self.newWindow.show()
+
+
+class MainWindow(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        super(MainWindow, self).__init__(parent)
+        self.name_list = []
+        self.filename = None
+        self.title = 'Questionnaire Select'
+        self.left = 100
+        self.top = 100
+        self.width = 400
+        self.height = 100
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left, self.top, self.width, self.height)
+        #
+        self.pushButton1 = QtWidgets.\
+            QPushButton("select Questionnaire Result file(xlsx file)", self)
+        self.pushButton1.clicked.connect(self.on_pushButton_clicked)
+        #
+        self.pushButton2 = QtWidgets.QPushButton("calculate exchange", self)
+        self.pushButton2.clicked.connect(self.on_pushButton2_clicked)
+        self.newWindow = Second()
+
+        #
+        self.copyright = QtWidgets.QLabel()
+        self.copyright.setText('\n\nDIPS software suite is developed by Hiroki Funashima in KINDAI Univ. Technical College.\n Copyright 2012-2023, Hiroki Funashima, All right reserved.')
+
+        #
+
+        layout = QtWidgets.QVBoxLayout()
+        layout.addWidget(self.pushButton1)
+        layout.addWidget(self.pushButton2)
+        layout.addWidget(self.copyright)
+
+        self.setLayout(layout)
+
+    def on_pushButton_clicked(self):
+        self.xlsx_file_dialog()
+
+    def on_pushButton2_clicked(self):
+        if len(self.name_list) < 1:
+            QtWidgets.QMessageBox.\
+                warning(None,
+                        'Questionnaire Result Error',
+                        'You have not selected xlsx file yet.',
+                        QtWidgets.QMessageBox.Yes)
+
+        else:
+            self.newWindow.main(self.name_list, self.filename)
+            self.newWindow.show()
+
+    def xlsx_file_dialog(self):
+        filename, check = QtWidgets.QFileDialog.\
+            getOpenFileName(None,
+                            "select file",
+                            "",
+                            "Excel File (*.xlsx)")
+        if check:
+            if os.path.isfile(filename):
+                self.parse_xlsx(filename)
+                self.filename = filename
+
+    def parse_xlsx(self, datafile):
+        self.ws = openpyxl.load_workbook(datafile).worksheets[0]
+        self.check_size()
+        self.name_list = []
+        column = 3
+        for row in range(2, self.max_row+1):
+            value = self.ws.cell(row=row, column=column).value
+            self.name_list.append(value)
+
+    def check_size(self):
+        i = 1
+        while True:
+            value = self.ws.cell(row=i, column=1).value
+            if value is None:
+                self.max_row = i-1
+                break
+            i += 1
+        return
+
+
+if __name__ == '__main__':
+    app = QtWidgets.QApplication(sys.argv)
+    main = MainWindow()
+    main.show()
+    sys.exit(app.exec_())

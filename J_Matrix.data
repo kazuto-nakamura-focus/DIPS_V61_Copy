@@ -1,0 +1,5 @@
+#
+# format 
+#   use [j matrix] [length matrix]
+#   
+use jmatrix.data, lmatrix.data

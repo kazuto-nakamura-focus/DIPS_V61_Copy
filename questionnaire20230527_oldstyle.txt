@@ -1,0 +1,419 @@
+#
+#ご自身への質問      あなたは、現在、下の事がらを、仕事上で、どの程度、うまくできる自信がありますか。あてはまるものを選択してください。
+#
+Q:: 得られたマーケット情報をもとに関係者が納得できる仮説を創り出すことができる。\Can you use the market information you have obtained to create a hypothesis that is acceptable to all parties involved?
+HR <=> MM<=> DSG <=> Tech <=> MKT  :: -1.0, 1.0
+
+Q:: 顧客・市場情報から顕在的ニーズと潜在的ニーズについての洞察や知識を収集している。\Do you gather insights and knowledge about manifest and latent needs from customer/market information?
+HR <=> MM <=> DSG <=> Tech <=> MKT  :: -1.0, 1.0
+
+Q:: 市場の求めるコストで技術開発ができる。\Can you develop technology at the cost the market demands?
+MKT <=> Tech <=>Cost  :: -1.0, 1.0
+
+Q:: 事例から着想したアイデアや仮説を、市場分析や信頼できるネットワークからのヒアリングなどを用いて検証できる。\Can you verify an idea or hypothesis inspired by a case study using market analysis, interviews with trusted networks, etc.?
+MM <=> HR <=> MKT <=> Tech  :: -1.0, 1.0
+
+Q:: 様々な市場分析手段を知っている。\Do you know various market analysis tools?
+HR <=> MKT <=> Tech  :: -1.0, 1.0
+
+Q:: 市場分析から、対象マーケットや収益性、他社との連携体制などを時系列でまとめた事業化シナリオを作ることができる。\Can you create a commercialization scenario that summarizes your target market, profitability, collaboration with other companies, etc. in chronological order from the market analysis?
+DSG <=> HR <=> Tech <=> MKT <=> Cost  :: -1.0, 1.0
+
+Q:: 得られた市場分析を基に、具体的に試行錯誤を行いながら、コンセプトを具現化できるだけの技術的知識を保有している。\Do you possess sufficient technical knowledge to realize the concept through a specific trial-and-error process Based on the market analysis obtained?
+HR <=> MM <=> DSG <=> Tech <=> MKT  :: -1.0, 1.0
+
+Q:: コンセプトを具体的製品開発の方法論に落とし込み、実際に実行することができる。\Can you translate a concept into a concrete product development methodology and actually implement it?
+HR <=> MM <=> DSG <=> Tech <=> MKT <=> Cost  :: -1.0, 1.0
+
+Q:: 十分な技術的裏付けがあり、市場のニーズに応えることができ、かつ利益が出るだけのビジネスモデルを企画立案することができる。\Can you plan a business model that has sufficient technical backing, can meet market needs, and is profitable?
+Cost <=> DSG <=> Tech <=> MKT  :: -1.0, 1.0
+
+Q:: 技術開発にともない、どこでコストダウンが出来るのか、ポイントを把握することができる。\Can you identify key points in technological development where cost reductions can be achieved?
+Cost <=> Tech <=> DSG  :: -1.0, 1.0
+
+Q:: （社外の）信頼できるネットワークからフィードバックを得ることで、製品コンセプトを洗練させ続けることができる。\Can you continue to refine your product concept by getting feedback from a trusted network of external sources?
+HR <=> MM <=> MKT  :: -1.0, 1.0
+
+Q:: 社内で人とお金を引き出せるだけの政治力を持っている。\Do you have the political clout to pull people and money out of your company?
+HR <=> Cost  :: -1.0, 1.0
+
+Q:: 社内での意見やコメントについて、誰がどのような立場から発言しているのかを把握している。\Do you keep track of who is speaking for whom and from what position regarding opinions and comments within your company?
+HR <=> DSG  :: -1.0, 1.0
+
+Q:: 社内の必要な人材に的確にアプローチできるだけのネットワークを持っている。\Do you have a network that allows you to approach the right people in your company?
+HR <=> Tech <=> Cost  :: -1.0, 1.0
+
+Q:: 技術開発に必要な人材・機器・材料・市場情報の社内外のリソースを自らが調達・開拓できる。\Can you personally procure and develop the internal and external resources necessary for technological development, such as personnel, equipment, materials, and market information?
+HR <=> MM <=> Tech <=> MKT  :: -1.0, 1.0
+
+Q:: 市場ニーズと技術開発の可能性を見極めて、どのような事業戦略をとるのが良いか判断できる。\Can you determine which business strategy is best suited to the needs of the market and the potential for technological development?
+DSG <=> Tech <=> MKT  :: -1.0, 1.0
+
+Q:: 技術開発だけでなく、常に製品単価に対しての開発コストと利益を考えることができる。\Can you always consider development costs and profit per unit of product as well as technology development?
+DSG <=> Tech <=> MKT <=> HR  :: -1.0, 1.0
+
+Q:: 将来の製品化やサービス展開など、明確な事業ビジョンを持って、研究開発を行っている。\Do you conduct research and development with a clear business vision for future commercialization and service development?
+DSG <=> HR  :: -1.0, 1.0
+
+Q:: 事業ビジョンに基づいて、市場情報と技術情報の分析を行うことができる。\Can you analyze market and technical information based on your business vision?
+HR <=> MKT <=> Tech  :: -1.0, 1.0
+
+Q:: 事例から着想した推論をロジカルに説明することができる。\Can you logically explain the reasoning inspired by the case study?
+MM <=> HR <=> MKT <=> Tech  :: -1.0, 1.0
+
+Q:事例から着想した仮説と製品コンセプトをもとに、他社・他者を納得させるだけの製品開発戦略ストーリーを創り上げることができる。
+Can you create a product development strategy story that will convince other companies and people based on the hypothesis and product concept inspired by the case study?
+MM <=> HR <=> MKT  :: -1.0, 1.0
+
+Q::事例から着想した推論を社外でブラッシュアップできる多様なネットワークを持っている。\Do you have a diverse network of people outside the company with whom you can brush up on the reasoning inspired by the case?
+MM <=> HR <=> MKT  :: -1.0, 1.0
+
+Q:: 事例から着想したアイデアや仮説をもとに、プロトタイプが市場に対してどのような価値を提案するか思考の上でシミュレーションできる。\Can you simulate on your thinking what value the prototype proposes to the market based on ideas and hypotheses inspired by the case study?
+MKT <=> MM  :: -1.0, 1.0
+
+Q:: 試行錯誤思考で、分析によって把握された事実から解釈や仮説を得る。\Do you use trial-and-error thinking to obtain interpretations or hypotheses from facts ascertained by analysis?
+MKT <=> MM  :: -1.0, 1.0
+
+Q:: 分析によって把握された様々な結果や事実から、アイデアや仮説を着想する。\Do you conceive of ideas or hypotheses from the various results and facts obtained by the analysis?
+MKT <=> MM  :: -1.0, 1.0
+
+Q:: 市場分析によって得られたニーズやトレンドから、自社の事業化モデルを構築することができる。\Can you build a commercialization model for your company based on the needs and trends obtained from your market analysis?
+MKT <=> DSG  :: -1.0, 1.0
+
+Q:: 市場分析によって得られたニーズやトレンドから、自社事業化モデルを構築した上で、事業化ケースを計画･立案することができる。\Can you plan and draft a commercialization case based on the needs and trends obtained from the market analysis and the development of your company's commercialization model?
+MKT <=> DSG  :: -1.0, 1.0
+
+Q:: 異なる市場で既に広く一般化されている技術を応用して、ターゲトット市場に対して価値提案を創ることができる。\Can you create a value proposition for a target market by applying a technology that is already widely prevalent in a different market?
+MKT <=> DSG  :: -1.0, 1.0
+
+Q:: 市場と顧客と自社ニーズを合致させた計画を立案する。\Are you developing a plan that aligns your company's needs with those of your market and customers?
+MKT <=> DSG  :: -1.0, 1.0
+
+Q:: 市場、顧客洞察から製品開発の着想を得る。\Do you draw inspiration for your product development from market and customer insights?
+MKT <=> DSG  :: -1.0, 1.0
+
+Q:: 事業活動を行うための基盤作りを含めた事業構想が立案できる。\Can you develop a business concept that includes laying the groundwork for your business activities?
+MKT <=> DSG  :: -1.0, 1.0
+
+Q:: オリジナリティのある技術開発を行うにあたり、社内外のネットワークを通じて必要なリソースを調達できる。\When developing original technology, can you source the necessary resources through internal and external networks?
+Tech <=> HR  :: -1.0, 1.0
+
+Q:: 技術開発テーマの事業化について、過去の経験をもとに直観で、実施可能かどうかの判断ができる。\Can you intuitively judge the feasibility of commercializing a technology development theme based on past experience?
+Tech <=> HR  :: -1.0, 1.0
+
+Q:: 製品の品質だけでなく製品を取り巻く知財も加味して、事業インフラまで踏み込んだ事業参入障壁を創りだすことができる。\Can you create barriers to entry that extend to the business infrastructure, taking into account not only the quality of the products but also the intellectual property surrounding them?
+Tech <=> HR  :: -1.0, 1.0
+
+Q:: 企業内部と外部のアイデアを有機的に結合させ、価値を創り出すことが出来る。\Can you organically combine internal and external ideas to create value?
+Tech <=> HR  :: -1.0, 1.0
+
+Q:: 有望な製品開発用途と材料が決まったら、徹底的に他社特許を調べ、どこに自社の活動できる部分があるのか、優位性を創れる場所があるかを調べる。\Once you have identified a promising product development application and material, do you then thoroughly research other companies' patents to see where your company can operate and where you can create an advantage?
+Tech <=> MM  :: -1.0, 1.0
+
+Q:: 市場ニーズを満たす製品について、なぜこれまで自社や他社が開発できなかったかを考える\Do you consider why you or others have been unable to develop products that meet market needs?
+Tech <=> MM  :: -1.0, 1.0
+
+Q:: 自社技術の何が本当に競争優位を支えているのか、自社技術でできることとできないことを突き詰めて考える。\Do you think through what your technology really supports your competitive advantage and what you can and cannot do with it?
+Tech <=> MM  :: -1.0, 1.0
+
+Q:: 如何に自社で持っているリソースを使い研究開発/製品開発を進めることができるかを考えている。\How can we use our resources to advance R&D/product development?
+Cost <=> DSG  :: 1.0, -1.0
+
+
+Q:: 市場が求めている時間軸で研究開発を進めることが、トータルの研究開発コストを下げることだと理解している。\Do you understand that proceeding with R&D in the time frame required by the market will lower your total R&D costs?
+Cost <=> DSG  :: 1.0, -1.0
+
+Q::製品開発戦略ストーリーを多くの人が共感できるビジョンとして語ることができる。\Can you explain your product development strategy story as a vision that most people can relate to?
+MKT <=> DSG <=> MM <=> HR <=> Tech  :: -1.0, 1.0
+
+Q::具体的な製品開発を行う上で、社内の様々なリソースにコンタクトすることができるネットワークを持っている。\Do you have a network that allows you to contact various internal resources for specific product development?
+HR <=> DSG <=> Tech  :: -1.0, 1.0
+
+Q::数多くの製品開発の失敗を繰り返している。\Have you experienced numerous product development failures?
+HR <=> DSG <=> MM <=> Tech <=> MKT  :: -1.0, 1.0
+
+Q::事業モデルを構築することができる。\Can you build a business model?
+HR <=> DSG <=> MM  :: -1.0, 1.0
+
+Q::眼に見える事象のみから判断、類推し、製品コンセプトの仮説を構築する。\Do you build hypotheses for product concepts based solely on what you can see?
+DSG <=> MM <=> MKT <=> HR  :: -1.0, 1.0
+
+Q::事例から着想したアイデアや仮説をもとに思考の上でのシミュレーションを行うことなく、表面的な事象のみで製品コンセプトを創造する。\Do you create product concepts based only on superficial events, without simulating the ideas and hypotheses inspired by the case studies in your thinking?
+HR <=> MM <=> DSG <=> MKT  :: -1.0, 1.0
+
+Q::自らの製品開発の経験不足を補うために、ネットワークを通じて製品開発の成功事例を学ぶことはしない。\Don't you create product concepts based only on superficial events, without simulating the ideas and hypotheses inspired by the case studies in your thinking?
+HR <=> DSG <=> MM  :: -1.0, 1.0
+
+Q::製品開発手順や事業化のシナリオを計画するのみで、自らが責任を持って実行するところまでは担わない。\You only plan product development procedures and commercialization scenarios, but you are not responsible for executing them yourself?
+HR <=> DSG <=> MM  :: -1.0, 1.0
+
+Q::類似競合品のコスト分析ができる。\Can you analyze the cost of similar competitive products?
+HR <=> Cost <=> DSG  :: -1.0, 1.0
+
+#
+#チーム・組織への質問
+#
+
+Q:: 投資リターンを考えながら研究開発を行っている。\Your team is conducting research and development with a return on investment in mind.
+MM <=> Cost  :: -1.0, 1.0
+
+Q:: 製品コンセプト創造の際に、収益性を考えている。\Does your team consider profitability when creating product concepts?
+DSG <=> Cost <=> MM  :: -1.0, 1.0
+
+Q:: バリューチェーンのどこで稼ぎ、どこで稼がないのかが明確になっている。\Is it clear where in the value chain your team makes money and where it does not?
+DSG <=> Cost <=> MM <=> MKT  :: -1.0, 1.0
+
+Q:: どの顧客セグメントに対して製品開発を行うのかが明確である\Are you clear on which customer segments you will be developing products for?
+DSG <=> MKT <=> Tech  :: -1.0, 1.0
+
+Q:: 用途とターゲット顧客の選定を行っている。\Have you selected your applications and target customers?
+DSG <=> MKT  :: -1.0, 1.0
+
+Q:: 創った製品コンセプトを、製品コストを考えながら、具体的な技術的課題に落とし込んで製品開発することができる。\Can you take a product concept you have created and translate it into a specific technical problem while considering product cost?
+MM <=> Tech <=> Cost  :: -1.0, 1.0
+
+Q:: 社内外のネットワークを上手く活用して効率的なサプライチェーンを構築している\Does your team make good use of internal and external networks to build an efficient supply chain?
+Cost <=> HR  :: -1.0, 1.0
+
+Q:: 市場、コスト、技術、人的資産、組織内での仕事の進め方やコミュニケーションのとり方、事業構想力などをバランスよく考えながら製品開発を行っている。\Are you developing products with a good balance of market, cost, technology, human assets, how to work and communicate within your organization, and business conceptualization skills?
+MKT <=> Tech <=> Cost <=> HR <=> MM <=> DSG  :: 1.0, -1.0
+
+Q:: 研究開発のテーマと担当者の経験・能力が合致していない。\The R&D theme does not match the experience and capabilities of the person in charge.
+Cost <=> HR  :: -1.0, 1.0
+
+Q:: 過去のしがらみでサプライチェーンが決まっている。\The supply chain is determined by past ties.
+Cost <=> HR  :: -1.0, 1.0
+
+Q:: 将来想定できるリスクから様々な事業収益のケースを考えている。\Have you considered various business revenue cases based on possible future risks?
+Cost <=> HR  :: -1.0, 1.0
+
+Q:: 生産現場は現状を変えることに積極的だ。\Are the members of the production floor willing to change the status quo?
+Cost <=> HR  :: -1.0, 1.0
+
+Q:: 生産プロセスの改良により生産効率向上を望む事業部と、プロセス改良に積極的な生産側で組織間の協力体制がある。\Is there a cooperative relationship between the business unit that wants to improve production efficiency by improving the production process and the production side that is willing to improve the process?
+Cost <=> HR  :: -1.0, 1.0
+
+Q:: 品質管理システムの整備によって責任範囲が明確になり、生産現場発の改善提案が減った。\Do you think that the development of a quality management system has clarified the scope of responsibility and reduced the number of improvement proposals originating from the production floor?
+Cost <=> HR  :: -1.0, 1.0
+
+Q:: 市場トレンドやニーズとR&D投資のタイミングがずれる。\The timing of R&D investment is misaligned with market trends and needs.
+MKT <=> Cost :: -1.0, 1.0
+
+Q:: マーケットの望む高品質な製品を低コストで作る技術を持っている。\Do you have the technology to make the high-quality products the market wants at a low cost?
+MKT <=> Cost   :: -1.0, 1.0
+
+Q:: 市場で得られた洞察結果から研究開発のシーズを見つけても、事業性がないと研究開発予算がつかない。\R&D budgets will not be obtained without business potential, even if R&D seeds are found from the results of insights gained in the market.
+MKT <=> Cost   :: -1.0, 1.0
+
+Q:: 市場で受け入れられるコストでの研究開発プロジェクトにしか研究開発予算が付かない。\Only R&D projects in the cost range acceptable to the market will receive R&D budgets.
+MKT <=> Cost:: -1.0, 1.0
+
+Q:: 競合他社と同様な研究開発プロジェクトを最後発で実施しているので、事業性に問題を抱えている。\Our project has a business feasibility problem because we are conducting the same R&D as our competitors at a late stage.
+MKT <=> Cost:: -1.0, 1.0
+
+Q:: 市場インパクトが大きい新製品を生み出す見込みのある研究開発プロジェクトに研究開発予算が付かない。\R&D budgets are not allocated to R&D projects that have the potential to produce new products with a large market impact.
+MKT <=> Cost:: -1.0, 1.0
+
+Q:: 市場に対してどのような価値を提案するかが明確でないので、事業性に問題を抱えている。\Are you having business feasibility issues because you are not clear on what value proposition you are offering to the market?
+MKT <=> Cost:: -1.0, 1.0
+
+Q:: 市場分析から得られた解釈や仮説について、思考の上で検証のシミュレーションを行ない、市場に対してどのような価値を提案できるかを考える。\Do you perform thoughtful verification simulations of interpretations and hypotheses derived from market analysis, and consider what value can be proposed to the market?
+MKT <=> MM:: -1.0, 1.0
+
+Q::個別顧客との直接的な対話を通じて、市場に対してどのような価値を提案できるかを洗練していく。\Do you brush up on what value you can offer to the market through direct interaction with individual customers?
+MKT <=> MM:: -1.0, 1.0
+
+Q:: 市場での仮説検証や市場との対話によって、市場トレンドやニーズがどれくらいのスピードで顕現化するかを予測する。\Do you predict how quickly market trends and needs will manifest themselves by testing hypotheses in the marketplace and interacting with the market?
+MKT <=> MM:: -1.0, 1.0
+
+Q:: サンプルを創り直し、市場に対してどのような価値を提供するのかを明確にしていく。\Are you implementing the process of re-creating samples to clarify what value you offer to the market?
+MKT <=> MM:: -1.0, 1.0
+
+Q:: 市場との対話を通じて製品コンセプトと市場に対してどのような価値を提供するのかを明確にする。\Do you have a process in place to clarify your product concept and what value you offer to the market through dialogue with the market?
+MKT <=> DSG:: -1.0, 1.0
+
+Q:: 市場(顧客)の現在の状態を観察し、本質的に望まれているニーズを抽出したのち、新製品/新事業コンセプトを創る。\When creating a new product/business concept, do you have a process in place to observe the current state of the market (customers) and extract the essential needs?
+MKT <=> DSG <=> MM:: -1.0, 1.0
+
+Q:: 市場との対話から売れる仕組みを考える。\Do you consider the selling mechanism based on a dialogue with the market?
+MKT <=> DSG:: -1.0, 1.0
+
+Q:: 事業構想計画を市場に対してプロモーションする。\Are you promoting your business concept plan to the market?
+MKT <=> DSG:: -1.0, 1.0
+
+Q:: 生産・量産・技術開発コストと製品技術開発コストが区別できていない。\The distinction between manufacturing cost, mass production cost, technology development cost, and product technology development cost is not made.
+Tech <=> Cost:: -1.0, 1.0
+
+Q:: 製品開発において、知的財産が確保できない研究開発を惰性で行っている。\When developing products, is there a tendency to inertia in R&D that does not secure intellectual property?
+Tech <=> Cost:: -1.0, 1.0
+
+Q:: 技術者が自身の興味本位で顧客ニーズから外れた技術開発を行った結果、開発期間が長期化し、開発コストが高くなっている。\When developing technologies, do engineers' own interests lead them to develop technologies that are outside of customer needs, resulting in prolonged development periods and high development costs?
+Tech <=> Cost:: -1.0, 1.0
+
+Q:: トップメーカーを競合と見なした最先端の技術開発が、必ずしも事業の収益を担保しているものではないことを把握している\Do you realize that the development of cutting-edge technology that considers the top manufacturers as competitors does not necessarily guarantee the profitability of your business?
+Tech <=> Cost  :: -1.0, 1.0
+
+Q:: 低コストで大量に生産できるように改良するコストダウンが、研究開発の中心になっている。\Isn't the focus of your research and development on improving the product so that it can be produced at low cost and in large quantities?
+Tech <=> Cost  :: -1.0, 1.0
+
+Q:: オリジナリティーの高い技術開発は、事業収益性がないとステージゲートの初期段階でつぶされる。\Are technological developments with high originality being crushed in the early stages of stage-gate from the viewpoint of business profitability?
+Tech <=> Cost  :: -1.0, 1.0
+
+Q:: 研究開発の初期段階からコスト意識と事業コスト試算を求める。\Are you cost-conscious from the early stages of R&D, and do you estimate business costs?
+Tech <=> Cost  :: -1.0, 1.0
+
+Q:: 技術開発に必要な知財に関する知識と経験の両方を持っている人材がいる。\Do you have people who have both the knowledge and experience in intellectual property necessary for technology development?
+Tech <=> HR  :: -1.0, 1.0
+
+Q:: ビジョンを掲げてオリジナリティのある技術を開発しようとリーダーシップを発揮する人がいる。\Do you have people who have a vision and leadership to develop original technology?
+Tech <=> HR  :: -1.0, 1.0
+
+Q:: 自社の競争優位の源泉技術は何か、事業化における競争力がどこにあるのか、明確に自覚している人材がいる。\Do you have people who are clearly aware of the source technology of the company's competitive advantage and where the competitive edge in commercialization lies?
+Tech <=> HR  :: -1.0, 1.0
+
+Q:: 外部との技術提携の内容を評価する能力を維持・向上させる仕組みが整っている。\Does your company have mechanisms in place to maintain and improve its ability to evaluate the content of its technical partnerships with outside parties?
+Tech <=> HR  :: -1.0, 1.0
+
+Q:: プロセスが固まっていなくても、ベータ版のサンプルを出して、顧客からのフィードバックを得る。\Do you send out beta samples and get customer feedback even if you don't have a solid process in place?
+Tech <=> MM  :: -1.0, 1.0
+
+Q:: プロトタイプのサンプルを提供する時から、知的財産の保護と利用を考える。\Do you consider the protection and use of your intellectual property from the time you provide samples of your prototypes?
+Tech <=> MM  :: -1.0, 1.0
+
+Q:: オリジナリティーのある製品にするために、自社の技術と他社の技術を組み合わせて何度も思考の上でシミュレーションを行う。\Do you combine your own technologies with those of other companies and perform numerous thoughtful simulations to develop products with originality?
+Tech <=> MM  :: -1.0, 1.0
+
+Q:: 技術開発の全体像が共有されている。\Is there a shared overall picture of the technology development project?
+Tech <=> DSG  :: -1.0, 1.0
+
+Q:: 製品コンセプトに基づく事業構想から具体的な要素技術開発項目にブレークダウンされている。\Have you broken down the business concept based on the product concept into specific elemental technology development items?
+Tech <=> DSG  :: -1.0, 1.0
+
+Q:: 技術開発ロードマップとそれに基づく用途特許を含む知財取得ロードマップができている。\Do you have a technology development roadmap and an IP acquisition roadmap including patents for use based on that roadmap?
+Cost <=> MM  :: -1.0, 1.0
+
+Q:: 特許で開示する内容と、ノウハウで保護する技術内容が区別されている。\Is there a distinction between what is disclosed in a patent and what is protected by know-how?
+Cost <=> MM  :: -1.0, 1.0
+
+Q:: 技術的に結果が求められやすい短期的な研究開発にシフトしている。\Are you shifting to short-term research and development where technical results are easily sought?
+Cost <=> MM  :: -1.0, 1.0
+
+Q:: 基礎研究のような時間とコストのかかる開発は、後回しになっている。\Are you putting off time-consuming and costly development such as basic research?
+Cost <=> MM  :: -1.0, 1.0
+
+Q:: 研究開発を始める時に中止/保留の判断基準を設けている\When you start R&D, do you have criteria for stopping/holding the project?
+Cost <=> MM  :: -1.0, 1.0
+
+Q:: 製品・サービス開発時のコスト目標に関して、原料購買や製造部門、営業部門との連携が不足し、コストの作り込みが十分でない\Is there insufficient coordination with raw material purchasing, manufacturing, and sales departments regarding cost targets during product and service development, and is there insufficient cost-building?
+Cost <=> MM  :: -1.0, 1.0
+
+Q:: 積極的に様々な小さなスケールでの実験と検証を繰り返し行い、これに必要な研究開発予算を持って、試行錯誤の実験を行っている。\Do you have the necessary R&D budget to repeat experiments and verifications on various small scales, and are you actively engaged in trial and error?
+Cost<=> MM:: -1.0, 1.0
+
+Q:: 研究開発/事業化ロードマップを創る際に、コンサルタントの情報を参考とし、自らが市場に出向いて直接得た情報にもとづいて作成している。\Do you create your R&D/commercialization roadmap based on information obtained directly from your own visits to the market, while taking into account information provided by consultants?
+Cost<=> DSG <=> MM <=> MKT <=> HR:: -1.0, 1.0
+
+Q:: 製品開発戦略を作成するにあたり、自らが時間とコストをかけて、実際の市場状況や顧客の置かれている状態を把握することはしない。\When creating a product development strategy, don't you take the time and expense to understand the actual market and customer conditions?
+Cost <=> DSG:: 1.0, -1.0
+
+Q:: 製品開発戦略を策定する際に、競合他社の参入を阻止するために、サプライチェーンも含めて事業参入障壁を考えている。\When creating your product development strategy, do you consider barriers to business entry, including your supply chain, to deter competitors from entering your market?
+Cost <=> DSG:: 1.0, -1.0
+
+Q:: 研究開発に長い期間がかかったとしても、顧客が求める製品コンセプトにするために、コンセプト検証に十分な時間とコストをかけて、試行錯誤を繰り返している。\When formulating your product development strategy, do you consider barriers to business entry, including your supply chain, to deter competitors from entering your market?
+Cost <=> DSG:: 1.0, -1.0
+
+Q:: 事業開発に最適な時間軸で投資判断ができる。\Can you make investment decisions with the best time horizon for business development?
+Cost <=> DSG:: 1.0, -1.0
+
+Q:: 市場分析によって把握された仮説から開発される製品が、市場に対してどのような価値を提案するか評価できる能力をもった人材がいる。\Do you have people who can evaluate the value proposition of a product developed from a hypothesis identified through market analysis?
+MKT <=> HR:: -1.0, 1.0
+
+Q::製品開発コンセプトを具体的な用途に応用できるように、市場に対して提案する価値を創り出せる。\Can you create a product development concept that offers value to the market in a specific application?
+MKT <=> HR:: 1.0, -1.0
+
+Q::製品・サービスの上市まで長期間経っても陳腐化しない製品コンセプトを創り出せる人材がいる。\Are there people who can create product concepts that will not become obsolete even after a long period of time before the product or service goes on the market?
+HR <=> DSG <=>MM <=> MKT:: -1.0, 1.0
+
+Q::製品開発を行う上で、顧客の開発時間軸を考えた上で、試作から製品化まで仕上げることを考えている。\When developing a product, do you consider the customer's development timeline from prototype to finished product?
+MKT <=> MM <=> HR <=> DSG <=> Tech:: -1.0, 1.0
+
+Q::人材は、自身の専門分野に精通しているだけでなく、化学、物理、生物、数学など幅広い分野に精通し、それぞれの分野がどのようなプロセスで活用されているかを理解しており、多様な潜在顧客と対話できるネットワークを築ける。\Does your team not only have expertise in your own field, but also in a wide range of disciplines such as chemistry, physics, biology, and mathematics, understand how each discipline is utilized in the process, and can you build a network to interact with a diverse set of potential clients?
+HR <=> Tech <=> DSG:: -1.0, 1.0
+
+Q::製品コンセプトから、具体的な技術課題や製品開発の方法論に落とし込めるだけの経験がある人材がいる。\Do you have people experienced enough to take a product concept and translate it into specific technical issues and product development methodologies?
+HR <=> DSG <=>MM <=> Tech:: -1.0, 1.0
+
+Q::事業化シナリオにもとづき、製品開発、知財、市場創成・開拓、投資回収、マーケティング＆セールスの戦略を具体的に描ける経験と知識をもった人材がいる。\Do you have people with the experience and knowledge to develop specific strategies for product development, intellectual property, market creation and development, return on investment, and marketing and sales based on a commercialization scenario?
+HR <=> DSG <=> MM <=> Cost <=> Tech <=> MKT:: -1.0, 1.0
+
+Q::コンサルタントからの情報をベースに事業戦略を構築する。\Do you build your business strategy based on information from consultants?
+DSG <=> MM <=> MKT:: -1.0, 1.0
+
+Q::製品開発を行う上で、顧客の時間軸よりも、自社の開発スケジュールを優先させる。\When developing a product, do you prioritize your own development schedule over the customer's timeline?
+HR <=> DSG <=> MKT:: -1.0, 1.0
+
+Q::研究開発の進捗に合わせて外部及び内部の状況を定期的に見直し調査・分析し、潜在的な価値実現の機会が存在する分野を、自社の研究開発に追加していますか？\Do you regularly review, investigate, and analyze external and internal conditions as your R&D progresses, and add to your own R&D those areas where opportunities for potential value realization exist?
+HR <=> DSG <=> MM:: -1.0, 1.0
+
+Q::創造的な考え方や行動（イノベーション思考）の仮説に基づく分析及び意思決定と、決まったことを確実に行う考え方や行動（オペレーション思考）の客観的事実に基づく分析及び意思決定の両方が、組織文化として「共存」していますか？\Do both the hypothesis-based analysis and decision-making of creative thinking and action (innovation thinking) and the objective fact-based analysis and decision-making of determined thinking and action (operational thinking) "coexist" in your organizational culture?
+HR <=> DSG <=> MM:: -1.0, 1.0
+
+Q::協力（オープンイノベーション）とは、研究開発のみの協力ではなく、事業部、法務、財務など全社的な取組みになっていますか？\Is cooperation (open innovation) a company-wide effort, including business units, legal affairs, finance, etc., rather than R&D-only cooperation?
+HR <=> DSG <=> MM:: -1.0, 1.0
+
+Q::トップマネジメントは、イノベーションによる価値を実現するために、組織としての機会とリスクのバランスや、失敗の許容度を示していますか？\Does top management demonstrate the organization's balance of opportunity and risk and tolerance for failure in order to realize value through innovation?
+HR <=> DSG <=> MM:: -1.0, 1.0
+
+Q::トップマネジメントは、イノベーション活動にコミットし、一つもしくは複数のイノベーション戦略を確立、実施、維持していますか？\s top management committed to innovation activities and establishing, implementing, and maintaining one or more innovation strategies?
+HR <=>DSG <=> MM <=> MKT <=> Tech <=> Cost:: -1.0, 1.0
+
+Q::トップマネジメントは、新事業開発の役割に関し組織内に明確な責任と権限を割り当て明確に理解される状況を作っていますか？\Does top management assign clear responsibilities and authority within the organization for the role of new business development and create a situation where it is clearly understood?
+HR <=> MM  :: -1.0, 1.0
+
+Q::イノベ−ションの計画を策定する際に、組織及びその状況の理解と利害関係者のニーズ及び機会の理解の内容を考慮し、取り組むべき機会とリスクを、決定していますか？\When developing your innovation plan, do you consider your understanding of the organization and its situation, as well as the needs and opportunities of your stakeholders, to determine the opportunities and risks to be addressed?
+DSG <=> MM <=> Tech <=> MKT <=> Cost  :: -1.0, 1.0
+
+Q::上記の取り組むべき機会とリスク決定の際に、機会を狙う上での不確実性や、許容されるリスクの程度なども計画に含めていますか？\When determining the opportunities and risks to be addressed, does the plan include the uncertainty in targeting opportunities and the degree of risk that is acceptable?
+DSG <=> MM <=> Tech <=> MKT <=> Cost  :: -1.0, 1.0
+
+Q::組織では、それぞれの部署や階層において、測定・検証可能なイノベーション/研究開発の目的を確立していますか？\Has your organization established measurable and verifiable innovation/ R&D objectives for each department and hierarchy?
+HR <=> MM  :: -1.0, 1.0
+
+Q::上記の目的は、イノベーションのビジョンや方針と整合が取れており、それぞれの部署や階層においても一貫した内容になっていますか？\Are the above objectives consistent with the vision and policies of the innovation, and are they consistent across different departments and hierarchies?
+HR <=> MM  :: -1.0, 1.0
+
+Q::研究開発プロジェクトの実施の為には、知識マネジメントのアプローチを確立することが望ましいが、暗黙知を形式知・集合知化する仕組みは存在していますか？\It is desirable to establish a knowledge management approach for the implementation of R&D projects, but does a mechanism exist to convert tacit knowledge into formal and collective knowledge?
+HR <=> MM  :: -1.0, 1.0
+
+Q::研究開発プロジェクト実施の為に、外部連携も含めて、必要な(バーチャルな)インフラストラクチャを定義、準備、維持していますか？\Do you define, prepare and maintain the necessary (virtual) infrastructure for the implementation of your R&D projects, including external collaboration?
+HR <=> MM  :: -1.0, 1.0
+
+Q::研究開発プロジェクトの効果的な実施の為、組織として、適切な人材教育を提供し、組織能力向上の活動を行っていますか？\Do you define, prepare and maintain the necessary (virtual) infrastructure for the implementation of your R&D projects, including external collaboration?
+HR <=> MM <=> DSG  :: -1.0, 1.0
+
+Q::研究開発プロジェクトが自社内で有効に機能するために、組織が必要であると決定した研究開発プロジェクトの内容を適切に文書化して、共有できるようにしていますか？\Are you able to properly document and share what your organization has determined is necessary for R&D projects to function effectively within your company?
+HR <=> MM  :: -1.0, 1.0
+
+Q::研究開発プロジェクトを効果的に実施するために、競合の技術や特許、アライアンス体制などの分析から得られた情報にもとづいて戦略策定を行う仕組みを構築していますか？\In order to effectively implement R&D projects, have you established a system to formulate strategies based on information obtained from analysis of competitors' technologies, patents, alliance structures, etc.?
+HR <=> MM <=> DSG <=> MKT  :: -1.0, 1.0
+
+Q::上記の活動は、競合の技術や特許、アライアンス体制などの分析から得られた情報から、実際に解釈と意思決定を生み出す活動になっていますか？\Are the above activities actually generating interpretations and decisions from the information obtained from the analysis of competitor technologies, patents, alliance structures, etc.?
+HR <=> MM <=> DSG <=> MKT  :: -1.0, 1.0
+
+Q::イノベーションの取組み：組織的なイノベーションのプロセスを確立し、それに基づいた取組みを実施していますか？\Innovation Initiatives: Have you established an organizational innovation process and are you implementing initiatives based on this process?
+HR <=> MM <=> DSG  :: -1.0, 1.0
+
+Q::ソリューションの開発：検証されたコンセプトを基にして、具体的なソリューション開発を行っていますか？\Solution development: Are you developing specific solutions based on the validated concepts?
+HR <=> MM <=> DSG  :: -1.0, 1.0
+
+Q::その開発の際に、内部での開発だけでなく、必要に応じて外部との連携を柔軟に行っていますか？\During the development of the above, do you have the flexibility to work with external parties as needed as well as internally?
+HR <=> MM <=> DSG  :: -1.0, 1.0
+
+Q::ソリューションの導入：ソリューション導入後も、社内外の広い関係者からのフィードバックを得ながら、ソリューション改善や新たな機会発見などの新たな知識を獲得する活動は行われていますか？\Solution implementation: After the solution is implemented, are there activities to obtain feedback from a wide range of internal and external stakeholders to improve the solution and gain new knowledge, such as discovering new opportunities?
+HR <=> MM <=> DSG  :: -1.0, 1.0
+
+Q::イノベーション/研究開発のパフォーマンス指標は、人事システムレベル、事業ポートフォリオレベル、そして、各プロジェクトレベルで適用されますが、インプット、プロセス、アウトプットの指標がバランスよく含まれていますか？\Are the innovation/ R&D performance measures applied at the HR system level, at the business portfolio level, and at the individual project level, and do they include a balance of input, process, and output measures?
+HR <=> MM <=> DSG  :: -1.0, 1.0
+
+Q::内部監査を通して、研究開発プロジェクトについて組織が規程した要求事項を明らかにすることが重要ですが、その結果は、経営陣に確実に報告されていますか？\Is it important to identify the requirements of the organization's regulations for R&D projects through internal audits and ensure that the results are reported to management?
+HR <=> MM <=> DSG  :: -1.0, 1.0
